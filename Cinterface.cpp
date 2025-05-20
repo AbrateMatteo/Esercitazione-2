@@ -1,5 +1,8 @@
-/*! @file interface.cpp
- *  @brief Implementation of command-line interface functions.
+/*! @file Cinterface.cpp
+    @brief Implementation of command-line interface functions.
+	@author Mattia De Lorenzi e Matteo Abrate
+
+    Details.
  */
 
 #include "Cinterface.h"
@@ -10,6 +13,7 @@
 
 using namespace std;
 
+/// @brief menu implementation
 void Menu() {
     cout << "\nMenu:\n";
     cout << "0 - Exit from the menu\n";
@@ -21,6 +25,8 @@ void Menu() {
     cout << "Choose: ";
 }
 
+/// @brief visualisation function
+///	@param funzioni
 void VisualizzaFunzioni(const std::vector<Function*>& funzioni) {
     if (funzioni.empty()) {
         cout << "there aren't any functions available.\n";
@@ -33,6 +39,8 @@ void VisualizzaFunzioni(const std::vector<Function*>& funzioni) {
     }
 }
 
+/// @brief insertion function
+///	@param funzioni
 void InserisciFunzione(std::vector<Function*>& funzioni) {
     int scelta;
     cout << "Type of function:\n";
@@ -112,6 +120,9 @@ void InserisciFunzione(std::vector<Function*>& funzioni) {
     }
 }
 
+
+/// @brief delete function
+///	@param funzioni
 void EliminaFunzione(std::vector<Function*>& funzioni) {
     if (funzioni.empty()) {
         cout << "There aren't any instructions to delete.\n";
@@ -138,13 +149,16 @@ void EliminaFunzione(std::vector<Function*>& funzioni) {
     }
 }
 
+/// @brief delete all function
+///	@param funzioni
 void EliminaTutte(std::vector<Function*>& funzioni) {
     for (auto* f : funzioni)
         delete f;
     funzioni.clear();
     cout << "All functions exterminated.\n";
 }
-
+/// @brief selection function
+///	@param funzioni
 void SelezionaFunzione(const std::vector<Function*>& funzioni) {
     if (funzioni.empty()) {
         cout << "There aren't any instructions to delete.\n";
